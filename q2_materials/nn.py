@@ -1,13 +1,8 @@
 """ Instruction:
 
 In this section, you are asked to train a NN with different hyperparameters.
-To start with training, you need to fill in the incomplete code. There are 3
-places that you need to complete:
-a) Backward pass equations for an affine layer (linear transformation + bias).
-b) Backward pass equations for ReLU activation function.
-c) Wetight update equaions.
 
-After correctly fill in the code, modify the hyperparameters in "main()".
+After correctly filling in the code, modify the hyperparameters in "main()".
 You can then run this file with the command: "python nn.py" in your terminal.
 The program will automatically check your gradient implementation before start.
 The program will print out the training progress, and it will display the
@@ -212,30 +207,6 @@ def train(model, forward, backward, update, eta, num_epochs, batch_size):
 
             var = forward(model, x)
             prediction = softmax(var["y"])
-            """if np.max(prediction) < 0.30:
-                prediction_1 = prediction[step]
-                img = x[step].reshape(48,48)
-                plt.imsave("face1.png", img)
-            if np.max(prediction) < 0.29:
-                prediction_2 = prediction[step]
-                img = x[step].reshape(48,48)
-                plt.imsave("face2.png", img)
-            if np.max(prediction) < 0.28:
-                prediction_3 = prediction[step]
-                img = x[step].reshape(48,48)
-                plt.imsave("face3.png", img)
-            if np.max(prediction) < 0.27:
-                prediction_4 = prediction[step]
-                img = x[step].reshape(48,48)
-                plt.imsave("face4.png", img)
-            if np.max(prediction) < 0.26:
-                prediction_5 = prediction[step]
-                img = x[step].reshape(48,48)
-                plt.imsave("face5.png", img)
-            if np.max(prediction) < 0.25:
-                prediction_6 = prediction[step]
-                img = x[step].reshape(48,48)
-                plt.imsave("face6.png", img)"""
             train_ce = -np.sum(t * np.log(prediction)) / float(x.shape[0])
             train_acc = (np.argmax(prediction, axis=1) ==
                          np.argmax(t, axis=1)).astype("float").mean()
